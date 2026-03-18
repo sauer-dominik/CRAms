@@ -1,10 +1,24 @@
-<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.4338480">
+﻿<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.4338480">
   <PropertyGroup>
-    <StartupCommand>pnpm start</StartupCommand>
-    <JavaScriptTestFramework>Jasmine</JavaScriptTestFramework>
-    <!-- Allows the build (or compile) script located on package.json to run on Build -->
-    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+    <!-- Run Build Command based on Configuration -->
+    <PnpmConfiguration Condition="'$(Configuration)'=='Debug'">development</PnpmConfiguration>
+    <PnpmConfiguration Condition="'$(Configuration)'=='Release'">production</PnpmConfiguration>
+    <BuildCommand>pnpm run build --configuration $(PnpmConfiguration)</BuildCommand>
     <!-- Folder where production build objects will be placed -->
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\CRAms.ClientApp\browser\</BuildOutputFolder>
+    <JavaScriptTestFramework>Jasmine</JavaScriptTestFramework>
+    <!-- Run pnpm install (instead of npm install) -->
+    <PreBuildEvent>pnpm install</PreBuildEvent>
+    <!-- Allows the build (or compile) script located on package.json to run on Build -->
+    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+    <!-- Do not run NpmInstall since we are using Pnpm -->
+    <ShouldRunNpmInstall>false</ShouldRunNpmInstall>
+    <StartupCommand>pnpm start</StartupCommand>
   </PropertyGroup>
+
+  <!-- Create Output Folder if not exists before running Build or Rebuild Target -->
+  <Target Name="MakeDirBuildOutputFolder" BeforeTargets="PrepareForBuild" Condition="!Exists($(BuildOutputFolder))">
+    <Message Text="Creating $(BuildOutputFolder).." />
+    <MakeDir Directories="$(BuildOutputFolder)" />
+  </Target>
 </Project>
