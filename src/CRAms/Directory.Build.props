@@ -1,0 +1,10 @@
+<Project>
+	<PropertyGroup>
+		<Authors>Dominik Sauer</Authors>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<AnalysisLevel>latest</AnalysisLevel>
+		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
+	</PropertyGroup>
+</Project>
