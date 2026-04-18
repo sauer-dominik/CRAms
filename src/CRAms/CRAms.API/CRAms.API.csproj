@@ -20,6 +20,6 @@
     <ProjectReference Include="..\CRAms.ClientApp\CRAms.ClientApp.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\CRAms.TechnicalGuidelineExtraction\CRAms.TechnicalGuidelineExtraction.csproj" />
+    <ProjectReference Include="..\CRAms.Data\CRAms.Data.csproj" />
   </ItemGroup>
 </Project>
