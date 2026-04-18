@@ -1,0 +1,11 @@
+.requirement-container {
+  padding: 0 16px;
+
+  & > * {
+    margin-top: 16px;
+  }
+}
+
+mat-card-footer {
+  padding-top: 8px;
+}

@@ -1,0 +1,30 @@
+<ol>
+  @for (requirement of requirements(); track requirement.id) {
+    <li [class.sub-requirement]="!requirement.isParent">
+      <div class="requirement border">
+        <div>
+          <a matButton [routerLink]="['requirements', requirement.id]">
+            <span>{{ requirement.name }}</span>
+          </a>
+        </div>
+        @let completedItemCount = getCompletedItemCount(requirement);
+        @let maxItemCount = getMaxItemCount(requirement);
+        @let notApplicableCount = getNotApplicableCount(requirement);
+        <span>{{ completedItemCount }} / {{ maxItemCount }} completed</span>
+        <span class="center-icon">
+          @if (completedItemCount < maxItemCount) {
+            <mat-icon aria-label="At least one Item has not been completed yet." class="icon-error">
+              error_outline
+            </mat-icon>
+          } @else if (notApplicableCount > 0) {
+            <mat-icon aria-label="At least one Item is not applicable." class="icon-warning">
+              info_circle_outline
+            </mat-icon>
+          } @else {
+            <mat-icon aria-label="All Items are completed" class="icon-success">check_circle_outline</mat-icon>
+          }
+        </span>
+      </div>
+    </li>
+  }
+</ol>

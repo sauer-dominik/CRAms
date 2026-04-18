@@ -1,0 +1,9 @@
+@use '@angular/material' as mat;
+
+* {
+  @include mat.icon-button-overrides(
+    (
+      icon-color: var(--mat-sys-primary),
+    )
+  );
+}

@@ -1,0 +1,16 @@
+* {
+  --mat-card-subtitle-text-line-height: var(--mat-sys-title-small-line-height);
+  --mat-card-subtitle-text-size: var(--mat-sys-title-small-size);
+  --mat-card-subtitle-text-tracking: var(--mat-sys-title-small-tracking);
+  --mat-card-subtitle-text-weight: var(--mat-sys-title-small-weight);
+}
+
+mat-card-content {
+  margin-top: 8px;
+  padding-bottom: 16px;
+}
+
+.update-status {
+  display: flex;
+  justify-content: flex-end;
+}

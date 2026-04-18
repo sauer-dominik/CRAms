@@ -1,0 +1,13 @@
+@if (product()) {
+  <div class="flex-column-container">
+    <crams-product-metadata [product]="product()"></crams-product-metadata>
+    <div class="flex-row-container">
+      <crams-product-responsibilities class="flex-grow" [product]="product()"></crams-product-responsibilities>
+      <crams-product-status class="flex-grow" [product]="product()"></crams-product-status>
+    </div>
+  </div>
+} @else {
+  <p>Loading..</p>
+}
+
+<router-outlet />

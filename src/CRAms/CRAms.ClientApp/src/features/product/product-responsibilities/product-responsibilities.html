@@ -1,0 +1,27 @@
+@if (!!product()) {
+  <mat-card appearance="outlined" class="max-height">
+    <mat-card-header>
+      <mat-card-title>Responsibilities</mat-card-title>
+      <mat-card-subtitle>
+        Displays information about the roles involved and the persons assigned to this project.
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="flex-column-container">
+        <div class="add-or-update-responsibilities">
+          <button matButton extended><mat-icon>person_add_alt</mat-icon> Add or update</button>
+        </div>
+        @for (participantMapping of productParticipantsMapping(); track participantMapping.role) {
+          <span class="responsibilities-header"> {{ Role[participantMapping.role] }}: </span>
+          <mat-chip-set>
+            @for (participant of participantMapping.participants; track participant.id) {
+              <mat-chip>{{ participant.name }}</mat-chip>
+            }
+          </mat-chip-set>
+        }
+      </div>
+    </mat-card-content>
+  </mat-card>
+} @else {
+  <p>Product could not be loaded.</p>
+}
