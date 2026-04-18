@@ -8,5 +8,6 @@
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="10.0.5" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.5" />
     <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
+    <PackageVersion Include="TypeGen" Version="7.0.0" />
   </ItemGroup>
 </Project>

@@ -20,9 +20,6 @@
     <ProjectReference Include="..\CRAms.ClientApp\CRAms.ClientApp.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\CRAms.TechnicalGuidelineExtraction\CRAms.TechnicalGuidelineExtraction.csproj" />
   </ItemGroup>
 </Project>

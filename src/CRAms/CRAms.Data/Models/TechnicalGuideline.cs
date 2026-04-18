@@ -7,12 +7,6 @@
         /// The Language of the Technical Guideline.
         /// </summary>
         required public string LanguageName { get; set; }
-        /*
-        /// <summary>
-        /// The Groupings of Requirements (Headings) as described in BSI TR-03183.
-        /// </summary>
-        public ICollection<RequirementGroup> RequirementGroups { get; set; } = new List<RequirementGroup>();
-        */
         /// <summary>
         /// The Requirements as described in BSI TR-03183.
         /// </summary>

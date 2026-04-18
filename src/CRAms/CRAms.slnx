@@ -1,8 +1,8 @@
 <Solution>
-  <Project Path="CRAms.API.Data/CRAms.API.Data.csproj" Id="46965f04-2ccd-4192-9288-16786f57d04a" />
   <Project Path="CRAms.API/CRAms.API.csproj" />
   <Project Path="CRAms.ClientApp/CRAms.ClientApp.esproj">
     <Build />
     <Deploy />
   </Project>
+  <Project Path="CRAms.Data/CRAms.Data.csproj" Id="85faa884-5bb6-4f55-9337-3f8929df3357" />
 </Solution>
