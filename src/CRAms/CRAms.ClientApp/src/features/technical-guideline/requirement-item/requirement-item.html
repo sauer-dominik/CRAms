@@ -1,0 +1,29 @@
+<div class="flex-row-container">
+  <div class="item-container">
+    <p>{{ requirementItem().description }}</p>
+  </div>
+  @if (!isCondition(requirementItem())) {
+    <button matIconButton matTooltip="Mark as done" aria-tooltip="Button that marks this item as done">
+      <mat-icon>check</mat-icon>
+    </button>
+  } @else {
+    <button
+      matIconButton
+      matTooltip="Mark as not applicable"
+      aria-tooltip="Button that marks this condition as not applicable to this product">
+      <mat-icon>visibility_off</mat-icon>
+    </button>
+  }
+  <button matIconButton matTooltip="Add note" aria-tooltip="Button that adds a note to this item">
+    <mat-icon>note_add</mat-icon>
+  </button>
+  <button
+    matIconButton
+    matTooltip="Ask colleagues for help"
+    aria-tooltip="Button that opens a dialogue with an AI-Assistant">
+    <mat-icon>question_answer</mat-icon>
+  </button>
+  <button matIconButton matTooltip="Ask AI for help" aria-tooltip="Button that opens a dialogue with an AI-Assistant">
+    <mat-icon>smart_toy</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,23 @@
+@use '@angular/material' as mat;
+
+.icon-success {
+  @include mat.icon-overrides(
+    (
+      color: green,
+    )
+  );
+}
+.icon-warning {
+  @include mat.icon-overrides(
+    (
+      color: orange,
+    )
+  );
+}
+.icon-error {
+  @include mat.icon-overrides(
+    (
+      color: red,
+    )
+  );
+}
