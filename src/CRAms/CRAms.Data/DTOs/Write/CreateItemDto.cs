@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CRAms.API.Data
+namespace CRAms.Data.DTOs.Write
 {
-    public class CRAmsDbContext
+    public class CreateItemDto
     {
     }
 }

@@ -1,0 +1,9 @@
+{
+  "csNullableTranslation": "null",
+  "customTypeMappings": {
+    "System.DateTime": "Date",
+    "System.Guid": "string"
+  },
+  "generationSpecs": [ "CRAms.Data.TsGenerationSpec" ],
+  "outputPath": "../CRAms.ClientApp/src/shared/dtos"
+}
