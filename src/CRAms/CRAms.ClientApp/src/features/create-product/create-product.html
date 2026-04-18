@@ -1,0 +1,48 @@
+<h2>Assess and Create Product</h2>
+
+<mat-stepper [linear]="true">
+  <mat-step>
+    <ng-template matStepLabel>Assess Product</ng-template>
+    <h3>Assess Product</h3>
+    <p>Please provide information about your product to assess if the Cyber Resilience Act applies to it.</p>
+    <form>
+      <div class="flex-column-container">
+        <p>What kind of Product describes yours the best?</p>
+        <mat-form-field>
+          <mat-label>Classification</mat-label>
+          <mat-select [formField]="productClassificationForm.classification">
+            @for (classification of classifications; track $index) {
+              @let classificationIndex = $index;
+              <mat-optgroup [label]="classification">
+                @for (product of productClassificationMappings[classification]; track product) {
+                  <mat-option [value]="classificationIndex">{{ product }}</mat-option>
+                }
+              </mat-optgroup>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Add Product Metadata</ng-template>
+    <h3>Add Product Metadata</h3>
+    <p>Please provide further information about your product to get started.</p>
+    <form>
+      <div class="flex-column-container">
+        <p>What do you call your Product?</p>
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput type="text" [formField]="productMetadataForm.name" />
+        </mat-form-field>
+        <p>How would you describe your Product?</p>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <input matInput type="text" [formField]="productMetadataForm.description" />
+        </mat-form-field>
+      </div>
+    </form>
+
+    <a matButton="filled" extended>Create</a>
+  </mat-step>
+</mat-stepper>

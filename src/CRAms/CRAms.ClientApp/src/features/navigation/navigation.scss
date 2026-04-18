@@ -1,0 +1,15 @@
+.flex-row-container {
+  justify-content: space-between;
+
+  .flex-left,
+  .flex-left > *,
+  .flex-right,
+  .flex-right > * {
+    align-self: center;
+  }
+
+  .flex-left,
+  .flex-right {
+    column-gap: 1em;
+  }
+}

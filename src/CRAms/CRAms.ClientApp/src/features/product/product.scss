@@ -1,0 +1,17 @@
+.flex-column-container {
+  row-gap: 8px;
+}
+
+.flex-row-container {
+  column-gap: 8px;
+
+  & > .flex-grow {
+    flex-basis: 50%;
+
+    .mat-mdc-card-outlined {
+      // TODO
+      background-color: red;
+      height: 100% !important;
+    }
+  }
+}

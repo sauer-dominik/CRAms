@@ -1,0 +1,29 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div class="flex-row-container full-width">
+      <div class="flex-row-container flex-left">
+        <a matButton="outlined" routerLink="/products">Products</a>
+        <a matButton="filled" extended routerLink="/products/new">
+          <mat-icon aria-hidden="true">add</mat-icon>New Product
+        </a>
+        <a matButton="outlined" routerLink="/cra">CRA</a>
+      </div>
+      <div>
+        <a matButton="outlined">
+          @if (!!user()) {
+            {{ user()!.name }} - {{ userRole() }}
+          } @else if (isLoading()) {
+            Loading..
+          } @else {
+            User could not be loaded.
+          }
+        </a>
+      </div>
+      <div class="flex-row-container flex-right">
+        <a matButton="outlined" routerLink="/imprint">Imprint</a>
+        <a matButton="outlined" routerLink="/data-protection">Data protection</a>
+        <a matButton="outlined" routerLink="/accessibility">Accessibility</a>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,31 @@
+@if (!!product()) {
+  <mat-card appearance="outlined" class="max-height">
+    <mat-card-header>
+      <mat-card-title> CRA Compliance </mat-card-title>
+      <mat-card-subtitle>Displays information about the compliance status of the product.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="flex-column-container">
+        <div class="update-status">
+          <button matButton extended><mat-icon>edit</mat-icon>Update</button>
+        </div>
+        <span class="status-header"> Status: </span>
+        <mat-chip-set>
+          @if (false) {
+            <mat-chip>Compliant</mat-chip>
+          } @else {
+            <mat-chip>Not compliant</mat-chip>
+          }
+        </mat-chip-set>
+        <mat-checkbox [disabled]="true">
+          The accuracy of the following information has been verified by legal experts.
+        </mat-checkbox>
+        <mat-checkbox [disabled]="true">
+          The complicance of this product has been verified by legal experts.
+        </mat-checkbox>
+      </div>
+    </mat-card-content>
+  </mat-card>
+} @else {
+  <p>Product could not be loaded.</p>
+}

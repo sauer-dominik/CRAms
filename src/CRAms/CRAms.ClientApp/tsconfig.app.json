@@ -4,12 +4,24 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
+    "paths": {
+      "@crams/features/*": ["./src/features/*"],
+      "@crams/dtos/constants": ["./src/shared/dtos/constants"],
+      "@crams/dtos/constants/*": ["./src/shared/dtos/constants/*"],
+      "@crams/dtos/enums": ["./src/shared/dtos/enums"],
+      "@crams/dtos/enums/*": ["./src/shared/dtos/enums/*"],
+      "@crams/dtos/read": ["./src/shared/dtos/read"],
+      "@crams/dtos/read/*": ["./src/shared/dtos/read/*"],
+      "@crams/dtos/write": ["./src/shared/dtos/write"],
+      "@crams/dtos/write/*": ["./src/shared/dtos/write/*"],
+      "@crams/models": ["./src/shared/models"],
+      "@crams/models/*": ["./src/shared/models/*"],
+      "@crams/services/*": ["./src/shared/services/*"],
+      "@crams/stores": ["./src/shared/stores"],
+      "@crams/stores/*": ["./src/shared/stores/*"]
+    },
     "types": []
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "src/**/*.spec.ts"
-  ]
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.spec.ts"]
 }
