@@ -21,7 +21,9 @@
 
                     @for (item of tab.items; track item.id) {
                       <div class="requirement-container">
-                        <crams-requirement-item [requirementItem]="item"></crams-requirement-item>
+                        <crams-requirement-item
+                          [requirementItem]="item"
+                          [itemTask]="getItemTaskForRequirementItem(item.id)"></crams-requirement-item>
                       </div>
                     }
                   </ng-template>

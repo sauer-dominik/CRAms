@@ -6,7 +6,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { RouterLink } from '@angular/router';
 import { ItemType } from '@crams/dtos/enums/item-type';
 import { Role } from '@crams/dtos/enums/role';
-import { ItemDto } from '@crams/dtos/read';
+import { ItemDto, ItemTaskDto } from '@crams/dtos/read';
 import { RequirementItem } from '@crams/features/technical-guideline/requirement-item/requirement-item';
 import { ProductStore, RequirementsStore } from '@crams/stores';
 import { UserStore } from '@crams/stores/user-store';
@@ -29,11 +29,14 @@ type RoleTabMapping = { [key in Role]: ItemType };
   providers: [ProductStore, RequirementsStore],
 })
 export class Requirement implements OnInit {
+  readonly #productStore = inject(ProductStore);
   readonly #requirementsStore = inject(RequirementsStore);
   readonly #userStore = inject(UserStore);
 
   productId = input.required<string>();
   requirementId = input.required<string>();
+
+  product = this.#productStore.product;
 
   user = this.#userStore.user;
 
@@ -88,7 +91,15 @@ export class Requirement implements OnInit {
   selectedIndex = signal<number | undefined>(undefined);
   selectedTabIndex = computed(() => this.selectedIndex() ?? this.initialTabIndex());
 
+  itemTasks = computed(() =>
+    this.#productStore.product()?.itemTasks.filter(it => it.requirementId === this.requirementId())
+  );
+
   ngOnInit(): void {
+    if (!this.product()) {
+      this.#productStore.loadProduct(this.productId());
+    }
+
     if (!this.user()) {
       // TODO: provide real userId
       const userId = '6dab8173-6574-42ef-98b2-0822650df3bb';
@@ -96,6 +107,10 @@ export class Requirement implements OnInit {
     }
 
     this.#requirementsStore.loadRequirements(this.productId());
+  }
+
+  getItemTaskForRequirementItem(itemId: string): ItemTaskDto | undefined {
+    return this.itemTasks()?.find(it => it.itemId === itemId);
   }
 
   isUndefinedOrEmpty(array: object[] | undefined): boolean {

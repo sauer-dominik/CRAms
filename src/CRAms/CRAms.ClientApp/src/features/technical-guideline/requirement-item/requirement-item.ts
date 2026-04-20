@@ -5,7 +5,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ItemType } from '@crams/dtos/enums/item-type';
-import { ItemDto } from '@crams/dtos/read';
+import { ItemDto, ItemTaskDto } from '@crams/dtos/read';
 
 @Component({
   selector: 'crams-requirement-item',
@@ -15,6 +15,7 @@ import { ItemDto } from '@crams/dtos/read';
 })
 export class RequirementItem {
   requirementItem = input.required<ItemDto>();
+  itemTask = input.required<ItemTaskDto | undefined>();
 
   isCondition(item: ItemDto): boolean {
     return item.type === ItemType.Condition;
