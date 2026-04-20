@@ -2,17 +2,33 @@
   <div class="item-container">
     <p>{{ requirementItem().description }}</p>
   </div>
+
   @if (!isCondition(requirementItem())) {
-    <button matIconButton matTooltip="Mark as done" aria-tooltip="Button that marks this item as done">
-      <mat-icon>check</mat-icon>
-    </button>
+    @if (!itemTask()?.isCompleted) {
+      <button matIconButton matTooltip="Mark as done" aria-tooltip="Button that marks this item as done">
+        <mat-icon>check</mat-icon>
+      </button>
+    } @else {
+      <button matIconButton matTooltip="Mark as not done" aria-tooltip="Button that marks this item as not done">
+        <mat-icon>remove_done</mat-icon>
+      </button>
+    }
   } @else {
-    <button
-      matIconButton
-      matTooltip="Mark as not applicable"
-      aria-tooltip="Button that marks this condition as not applicable to this product">
-      <mat-icon>visibility_off</mat-icon>
-    </button>
+    @if (!itemTask()?.isApplicable) {
+      <button
+        matIconButton
+        matTooltip="Mark as not applicable"
+        aria-tooltip="Button that marks this condition as not applicable to this product">
+        <mat-icon>visibility_off</mat-icon>
+      </button>
+    } @else {
+      <button
+        matIconButton
+        matTooltip="Mark as applicable"
+        aria-tooltip="Button that marks this condition as applicable to this product">
+        <mat-icon>visibility_on</mat-icon>
+      </button>
+    }
   }
   <button matIconButton matTooltip="Add note" aria-tooltip="Button that adds a note to this item">
     <mat-icon>note_add</mat-icon>
@@ -20,7 +36,7 @@
   <button
     matIconButton
     matTooltip="Ask colleagues for help"
-    aria-tooltip="Button that opens a dialogue with an AI-Assistant">
+    aria-tooltip="Button that opens discussion with your colleagues">
     <mat-icon>question_answer</mat-icon>
   </button>
   <button matIconButton matTooltip="Ask AI for help" aria-tooltip="Button that opens a dialogue with an AI-Assistant">
