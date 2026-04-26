@@ -1,0 +1,29 @@
+@startuml BaseArchitectureCRAms
+
+title Base Architecture of CRAms
+
+package CRAms {
+    component CRAms.UI as UI <<Angular>>
+    component CRAms.API as API <<.NET>>
+    component CRAms.Data as Data <<.NET>>
+    component CRAms.LLMAdapter as LLMA <<.NET>>
+
+    interface "HTTP" as uiToApi
+
+    UI ..left..> uiToApi: use
+    uiToApi -left- API
+}
+
+database SQL {
+}
+
+interface "HTTP" as llmaToLlm
+component LLM <<Local>>
+
+API -left-> Data
+Data -left-> SQL: EF Core
+API -down-> LLMA
+LLMA ..left..> llmaToLlm: use
+llmaToLlm -left- LLM
+
+@enduml
